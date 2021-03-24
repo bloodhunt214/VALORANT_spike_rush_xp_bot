@@ -18,5 +18,5 @@ Resolution : 1920 x 1080 16:9 <br>
 **crosshair : white dot**
 
 ## ❗❗WARNING❗❗ <br>
-If too many people report you may get banned
+_**If too many people report you may get banned**_
 
