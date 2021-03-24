@@ -15,6 +15,6 @@ video : All LOW <br>
 Display Mode : Windowed Fullscreen <br>
 Resolution : 1920 x 1080 16:9 <br>
 
-## WARNING <br>
+## ❗❗WARNING❗❗ <br>
 If too many people report you may get banned
 
