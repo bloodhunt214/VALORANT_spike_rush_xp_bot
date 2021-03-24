@@ -458,13 +458,39 @@ afkoffense(){
         PixelSearch, FoundX, FoundY, 600, 400, 600, 400, 0x1E2328,,Fast RGB ;afk offense
         if (ErrorLevel=0) {
 
-            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,,Fast RGB ;i understand
+            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,2,Fast RGB ;i understand
             if (ErrorLevel=0) {
                 MouseMove 1070, 659, 0
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
                 Sleep, 1000
+            }
+
+        }
+
+    }
+}
+
+connectionerror(){
+    PixelSearch, FoundX, FoundY, 28, 28, 28, 28, 0xFFFFFF,,Fast RGB ;not MenuWhite1
+    if not (ErrorLevel=0) {
+
+        PixelSearch, FoundX, FoundY, 1897, 25, 1897, 25, 0xFFFFFF,,Fast RGB ;not MenuWhite2
+        if not (ErrorLevel=0) {
+
+            PixelSearch, FoundX, FoundY, 700, 650, 700, 650, 0x1F262D,1,Fast RGB ;connection error
+            if (ErrorLevel=0) {
+
+                PixelSearch, FoundX, FoundY, 870, 650, 870, 650, 0x51565c,1,Fast RGB ;quit botton
+                if (ErrorLevel=0) {
+                    MouseMove 960, 650, 0
+                    Sleep, 100
+                    Send {LButton DOWN}
+                    Send {LButton UP}
+                    Sleep, 1000
+                }
+
             }
 
         }
@@ -483,6 +509,7 @@ if WinActive("VALORANT") {
    cheaterdetected()
    killvalorant()
    afkoffense()
+   connectionerror()
 }
 restartvalorant()
 }
