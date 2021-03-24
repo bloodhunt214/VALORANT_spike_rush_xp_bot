@@ -15,7 +15,7 @@ F7 : exit script <br>
 video : All LOW <br>
 Display Mode : Windowed Fullscreen <br>
 Resolution : 1920 x 1080 16:9 <br>
-crosshair : white dot
+**crosshair : white dot**
 
 ## ❗❗WARNING❗❗ <br>
 If too many people report you may get banned
