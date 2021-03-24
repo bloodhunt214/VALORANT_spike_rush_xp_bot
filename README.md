@@ -6,7 +6,7 @@ Resolution : 1920*1080 <br>
 Text Language : English <br>
 
 ## How to use <br>
-Put a valorant.lnk in the script directory <br>
+Copy Valorant shortcut and put it in the SAME FOLDER <br>
 Double click the script to start <br>
 L : exit script <br>
 F7 : exit script <br>
