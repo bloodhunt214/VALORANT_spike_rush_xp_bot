@@ -3,6 +3,22 @@ ListLines, Off
 CoordMode, Mouse, Screen
 CoordMode, Pixel, Screen
 
+
+
+global crosscolor := 0xFFFFFF ;dot crosshair color
+
+
+
+
+
+
+
+
+
+
+
+
+
 global readyfail := 0
 
 playbutton(){
@@ -183,7 +199,7 @@ antiafk(){
                 PixelSearch, FoundX, FoundY, 1061, 984, 1061, 984, 0xFFFFFF,4,Fast RGB ;not in queue
                 if not (ErrorLevel=0) {
 
-                    PixelSearch, FoundX, FoundY, 960, 540, 960, 540, 0xFFFFFF,3,Fast RGB ;crosshair = in game
+                    PixelSearch, FoundX, FoundY, 960, 540, 960, 540, crosscolor,3,Fast RGB ;crosshair = in game
                     if (ErrorLevel=0) {
 
                         Random, ppp, 1, 25
@@ -232,107 +248,33 @@ antiafk(){
                         }
                         if(ppp = 6) {
 
-                            Send {I DOWN} ;Watching Here
-                            Sleep % 50
-                            Send {I UP}
-
-                        }
-                        if(ppp = 7) {
-
-                            Send {P DOWN} ;on my mark
-                            Sleep % 50
-                            Send {P UP}
-
-                        }
-                        if(ppp = 8) {
-
                             Send {W DOWN}
                             Sleep % 1000
                             Send {W UP}
 
                         }
-                        if(ppp = 9) {
+                        if(ppp = 7) {
 
                             Send {S DOWN}
                             Sleep % 1000
                             Send {S UP}
 
                         }
-                        if(ppp = 10) {
+                        if(ppp = 8) {
 
                             Send {A DOWN}
                             Sleep % 1000
                             Send {A UP}
 
                         }
-                        if(ppp = 11) {
+                        if(ppp = 9) {
 
                             Send {D DOWN}
                             Sleep % 1000
                             Send {D UP}
 
                         }
-                        if(ppp = 12) {
-
-                            Send {Z DOWN}
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {1 DOWN}
-                            Sleep % 50
-                            Send {1 UP}
-
-                        }
-                        if(ppp = 13) {
-
-                            Send {Z DOWN}
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {2 DOWN}
-                            Sleep % 50
-                            Send {2 UP}
-
-                        }
-                        if(ppp = 14) {
-
-                            Send {Z DOWN}
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {3 DOWN}
-                            Sleep % 50
-                            Send {3 UP}
-
-                        }
-                        if(ppp = 15) {
-
-                            Send {Z DOWN}
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {4 DOWN}
-                            Sleep % 50
-                            Send {4 UP}
-
-                        }
-                        if(ppp = 16) {
-
-                            Send {Z DOWN}
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {5 DOWN}
-                            Sleep % 50
-                            Send {5 UP}
-
-                        }
-                        if(ppp = 17) {
-
-                            Send {Z DOWN} ;social radio
-                            Sleep % 100
-                            Send {Z UP}
-                            Send {6 DOWN} ;hello
-                            Sleep % 50
-                            Send {6 UP}
-
-                        }
-                        if(ppp = 18) {
+                        if(ppp = 10) {
 
                             Send {3 DOWN}
                             Send {3 UP}
@@ -343,6 +285,10 @@ antiafk(){
                             Send {1 DOWN}
                             Send {1 UP}
 
+                        }
+                        if(ppp = 11) {
+
+                            hello()
 
                         }
 
@@ -436,7 +382,7 @@ killvalorant(){
     if (readyfail > 9){
         WinKill ,VALORANT
         readyfail := 0
-        Sleep, 5000
+        Sleep, 10000
     }
 }
 
@@ -447,7 +393,7 @@ restartvalorant(){
         }
     }else {
         Run, Valorant.lnk
-        Sleep, 5000
+        Sleep, 10000
     }
 }
 
@@ -458,12 +404,13 @@ afkoffense(){
         PixelSearch, FoundX, FoundY, 600, 400, 600, 400, 0x1E2328,,Fast RGB ;afk offense
         if (ErrorLevel=0) {
 
-            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,2,Fast RGB ;i understand
+            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,16,Fast RGB ;i understand
             if (ErrorLevel=0) {
                 MouseMove 1070, 659, 0
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
+                MouseMove 960, 540, 0
                 Sleep, 1000
             }
 
@@ -484,11 +431,9 @@ connectionerror(){
 
                 PixelSearch, FoundX, FoundY, 870, 650, 870, 650, 0x51565c,1,Fast RGB ;quit botton
                 if (ErrorLevel=0) {
-                    MouseMove 960, 650, 0
-                    Sleep, 100
-                    Send {LButton DOWN}
-                    Send {LButton UP}
-                    Sleep, 1000
+                    
+                    WinKill ,VALORANT
+                    
                 }
 
             }
@@ -498,7 +443,53 @@ connectionerror(){
     }
 }
 
+valerror(){
+    PixelSearch, FoundX, FoundY, 500, 670, 500, 670, 0x14212E,,Fast RGB ;Val ERROR
+    if (ErrorLevel=0) {
+
+        PixelSearch, FoundX, FoundY, 800, 670, 800, 670, 0x49525D,,Fast RGB ;quit button
+        if (ErrorLevel=0) {
+
+            PixelSearch, FoundX, FoundY, 943, 683, 943, 683, 0xFFFFFF,4,Fast RGB ;quit button
+            if (ErrorLevel=0) {
+
+                WinKill ,VALORANT
+
+            }
+
+        }
+
+    }
+}
+
+riotclientplay(){
+    WinActivate ,Riot Client
+    Sleep, 100
+    WinGetPos, riotX, riotY, riotW, riotH, Riot Client
+    MouseMove riot + riotW / 2, riotY + riotH / 2, 0
+    Sleep, 100
+    Send {LButton DOWN}
+    Send {LButton UP}
+    MouseMove 960, 540, 0
+    Sleep, 1000
+}
+
+hello(){
+    Send {LShift DOWN}
+    Sleep, 50
+    Send {Enter}
+    Send {LShift UP}
+    Sleep, 100
+    Send {Text}https://github.com/worse-666/VALORANT_spike_rush_xp_bot
+    Sleep, 100
+    Send {Enter}
+    Sleep, 100
+}
+
 while TRUE {
+if WinExist("Riot Client") {
+    riotclientplay()
+}
 if WinActive("VALORANT") {
    playbutton()
    spikerushbutton()
@@ -510,6 +501,7 @@ if WinActive("VALORANT") {
    killvalorant()
    afkoffense()
    connectionerror()
+   valerror()
 }
 restartvalorant()
 }
