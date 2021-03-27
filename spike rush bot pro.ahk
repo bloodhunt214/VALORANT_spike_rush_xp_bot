@@ -288,6 +288,12 @@ antiafk(){
                         }
                         if(ppp = 11) {
 
+                            Send {T DOWN}
+                            Send {T UP}
+
+                        }
+                        if(ppp = 12) {
+
                             hello()
 
                         }
