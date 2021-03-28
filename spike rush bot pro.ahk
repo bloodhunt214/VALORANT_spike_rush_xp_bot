@@ -5,20 +5,22 @@ CoordMode, Pixel, Screen
 
 
 
-global crosscolor := 0xFFFFFF ;dot crosshair color
+global crosscolor   := 0xFFFFFF ;dot crosshair color
+global forward_key  := "W"
+global back_key     := "S"
+global left_key     := "A"
+global right_key    := "D"
+global jump_key     := "Space"
+global crouch_key   := "Ctrl"
+global graffiti_key := "T"
+global inspect_key  := "Y"
 
 
 
 
 
 
-
-
-
-
-
-
-
+global go := 1
 global readyfail := 0
 
 playbutton(){
@@ -213,9 +215,9 @@ antiafk(){
                         }
                         if(ppp = 2) {
 
-                            Send {Space DOWN}
+                            Send {%jump_key% DOWN}
                             Sleep % 20
-                            Send {Space UP}
+                            Send {%jump_key% UP}
                             Random, rand, 8, 20
                             Send {LButton DOWN}
                             Sleep % rand * 100
@@ -224,54 +226,54 @@ antiafk(){
                         }
                         if(ppp = 3) {
 
-                            Send {Ctrl DOWN}
+                            Send {%crouch_key% DOWN}
                             Sleep % 150
-                            Send {Ctrl UP}
+                            Send {%crouch_key% UP}
 
                         }
                         if(ppp = 4) {
 
-                            Send {Space DOWN}
+                            Send {%jump_key% DOWN}
                             Sleep % 20
-                            Send {Space UP}
-                            Send {Y DOWN}
+                            Send {%jump_key% UP}
+                            Send {%inspect_key% DOWN}
                             Sleep % 50
-                            Send {Y UP}
+                            Send {%inspect_key% UP}
 
                         }
                         if(ppp = 5) {
 
-                            Send {Y DOWN}
+                            Send {%inspect_key% DOWN}
                             Sleep % 50
-                            Send {Y UP}
+                            Send {%inspect_key% UP}
 
                         }
                         if(ppp = 6) {
 
-                            Send {W DOWN}
+                            Send {%forward_key% DOWN}
                             Sleep % 1000
-                            Send {W UP}
+                            Send {%forward_key% UP}
 
                         }
                         if(ppp = 7) {
 
-                            Send {S DOWN}
+                            Send {%back_key% DOWN}
                             Sleep % 1000
-                            Send {S UP}
+                            Send {%back_key% UP}
 
                         }
                         if(ppp = 8) {
 
-                            Send {A DOWN}
+                            Send {%left_key% DOWN}
                             Sleep % 1000
-                            Send {A UP}
+                            Send {%left_key% UP}
 
                         }
                         if(ppp = 9) {
 
-                            Send {D DOWN}
+                            Send {%right_key% DOWN}
                             Sleep % 1000
-                            Send {D UP}
+                            Send {%right_key% UP}
 
                         }
                         if(ppp = 10) {
@@ -288,8 +290,8 @@ antiafk(){
                         }
                         if(ppp = 11) {
 
-                            Send {T DOWN}
-                            Send {T UP}
+                            Send {%graffiti_key% DOWN}
+                            Send {%graffiti_key% UP}
 
                         }
                         if(ppp = 12) {
@@ -493,25 +495,31 @@ hello(){
 }
 
 while TRUE {
-if WinExist("Riot Client") {
-    riotclientplay()
-}
-if WinActive("VALORANT") {
-   playbutton()
-   spikerushbutton()
-   startbutton()
-   pickagent()
-   antiafk()
-   partynotready()
-   cheaterdetected()
-   killvalorant()
-   afkoffense()
-   connectionerror()
-   valerror()
-}
-restartvalorant()
+    if (go = 1) {
+        if WinExist("Riot Client") {
+            riotclientplay()
+        }
+        if WinActive("VALORANT") {
+           playbutton()
+           spikerushbutton()
+           startbutton()
+           pickagent()
+           antiafk()
+           partynotready()
+           cheaterdetected()
+           killvalorant()
+           afkoffense()
+           connectionerror()
+           valerror()
+        }
+        restartvalorant()
+    }
 }
 
+F6::
+go := go * -1
+KeyWait, F6
+Return
 
 F7::ExitApp
 L::ExitApp
