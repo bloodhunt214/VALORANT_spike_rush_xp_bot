@@ -400,7 +400,9 @@ restartvalorant(){
             WinActivate ,VALORANT
         }
     }else {
-        Run, Valorant.lnk
+        try {
+            Run, Valorant.lnk
+        }
         Sleep, 10000
     }
 }
@@ -492,6 +494,12 @@ hello(){
     Sleep, 100
     Send {Enter}
     Sleep, 100
+}
+
+
+if !FileExist(A_ScriptDir . "\" . "Valorant.lnk") {
+    MsgBox, You must put a valorant shortcut in the same folder as the script
+    ExitApp
 }
 
 while TRUE {
