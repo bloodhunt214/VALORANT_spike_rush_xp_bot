@@ -8,6 +8,7 @@ Text Language : English <br>
 ## How to use <br>
 Copy Valorant shortcut and put it in the SAME FOLDER <br>
 Double click the script to start <br>
+F6 : pause <br>
 L : exit script <br>
 F7 : exit script <br>
 
