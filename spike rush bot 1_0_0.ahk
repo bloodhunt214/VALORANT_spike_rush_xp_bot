@@ -397,6 +397,7 @@ killvalorant(){
 restartvalorant(){
     if WinExist("VALORANT"){
         if not WinActive("VALORANT") {
+            Sleep, 5000
             WinActivate ,VALORANT
         }
     }else {
