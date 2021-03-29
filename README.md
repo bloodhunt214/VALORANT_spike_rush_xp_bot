@@ -23,4 +23,6 @@ Resolution : 1920 x 1080 16:9 <br>
 _**If too many people report you may get banned**_
 
 ## DISCORD <br>
-https://discord.gg/BjxwDRDH
+https://discord.gg/BjxwDRDH <br>
+
+## Changelog <br>
