@@ -26,3 +26,8 @@ _**If too many people report you may get banned**_
 https://discord.gg/BjxwDRDH <br>
 
 ## Changelog <br>
+### spike_rush_bot_1.1.0 <br>
+* Add bot_log
+* Now you can set the target XP
+### spike_rush_bot_1.0.0 <br>
+* normal <br>
