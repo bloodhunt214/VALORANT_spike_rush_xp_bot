@@ -296,7 +296,7 @@ antiafk(){
                         }
                         if(ppp = 12) {
 
-                            hello()
+                            ;hello()
 
                         }
 
