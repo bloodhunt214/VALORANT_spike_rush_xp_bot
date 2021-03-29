@@ -496,9 +496,12 @@ hello(){
     Sleep, 100
 }
 
-
+if not (A_ScreenWidth = 1920 and A_ScreenHeight = 1080) {
+    MsgBox, Your resolution is not 1920*1080 `n The script can't work.
+    ExitApp
+}
 if !FileExist(A_ScriptDir . "\" . "Valorant.lnk") {
-    MsgBox, You must put a valorant shortcut in the same folder as the script
+    MsgBox, You must put a valorant shortcut in the same folder as the script and named "Valorant".
     ExitApp
 }
 
