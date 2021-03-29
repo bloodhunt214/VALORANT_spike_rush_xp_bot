@@ -393,6 +393,10 @@ afkoffense(){
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
+                MouseMove 1070, 710, 0 ;afk offense 2
+                Sleep, 100
+                Send {LButton DOWN}
+                Send {LButton UP}
                 Sleep, 1000
 
             }
