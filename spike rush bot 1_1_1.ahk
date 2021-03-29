@@ -393,7 +393,13 @@ afkoffense(){
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
-                MouseMove 1070, 710, 0 ;afk offense 2
+                Sleep, 1000
+
+            }
+            PixelSearch, FoundX, FoundY, 1070, 700, 1070, 700, 0xDF5D58,18,Fast RGB ;i understand 2
+            if (ErrorLevel=0) {
+
+                MouseMove 1070, 700, 0 ;afk offense 2
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
