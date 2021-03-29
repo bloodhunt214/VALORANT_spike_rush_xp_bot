@@ -14,25 +14,26 @@ global jump_key     := "Space"
 global crouch_key   := "Ctrl"
 global graffiti_key := "T"
 global inspect_key  := "Y"
+global how_much_XP  := 99999999999999999999999 ;How much XP do you want.
 
 
 
 
 
 
+global exp := 0
 global go := 1
 global readyfail := 0
 
-playbutton(){
-    MouseMove 960, 540, 0
+valhome(){
     PixelSearch, FoundX, FoundY, 28, 28, 28, 28, 0xFFFFFF,,Fast RGB ;MenuWhite1
     if (ErrorLevel=0) {
 
         PixelSearch, FoundX, FoundY, 1897, 25, 1897, 25, 0xFFFFFF,,Fast RGB ;MenuWhite2
         if (ErrorLevel=0) {
 
-            PixelSearch, FoundX, FoundY, 1000, 10, 1000, 10, 0xC2C4C8,16,Fast RGB ;PLAY button
-            if (ErrorLevel=0) {
+            PixelSearch, FoundX, FoundY, 42, 112, 42, 112, 0xFFFFFF,,Fast RGB ;not BACK buttom
+            if not (ErrorLevel=0) {
 
                 MouseMove 1000, 10, 0 ;PLAY button
                 Sleep, 100
@@ -40,7 +41,7 @@ playbutton(){
                 Send {LButton UP}
                 Sleep, 100
                 MouseMove 960, 540, 0
-                Sleep, 1000
+                Sleep, 2000
 
             } 
         
@@ -49,26 +50,24 @@ playbutton(){
     }
 }
 
-spikerushbutton(){
+spikerushmode(){
     PixelSearch, FoundX, FoundY, 28, 28, 28, 28, 0xFFFFFF,,Fast RGB ;MenuWhite1
     if (ErrorLevel=0) {
 
         PixelSearch, FoundX, FoundY, 1897, 25, 1897, 25, 0xFFFFFF,,Fast RGB ;MenuWhite2
         if (ErrorLevel=0) {
 
-            PixelSearch, FoundX, FoundY, 900, 96, 900, 96, 0x111C35,,Fast RGB ;not SPIKE RUSH mode
+            PixelSearch, FoundX, FoundY, 676, 977, 676, 977, 0xFFFFFF,,Fast RGB ;practice button
             if (ErrorLevel=0) {
 
-                PixelSearch, FoundX, FoundY, 964, 984, 964, 984, 0xFFFFFF,,Fast RGB ;START button
+                PixelSearch, FoundX, FoundY, 900, 96, 900, 96, 0x111C35,,Fast RGB ;not SPIKE RUSH mode
                 if (ErrorLevel=0) {
 
                     MouseMove 900, 96, 0 ;SPIKE RUSH button
                     Sleep, 100
                     Send {LButton DOWN} ;Press SPIKE RUSH button
                     Send {LButton UP}
-                    Sleep, 100
-                    MouseMove 960, 540, 0
-                    Sleep, 1000
+                    Sleep, 2000
 
                 }
                 
@@ -89,8 +88,8 @@ startbutton(){
             PixelSearch, FoundX, FoundY, 900, 96, 900, 96, 0x283249,,Fast RGB ;SPIKE RUSH mode
             if (ErrorLevel=0) {
 
-                PixelSearch, FoundX, FoundY, 1061, 984, 1061, 984, 0xFFFFFF,4,Fast RGB ;not in queue
-                if not (ErrorLevel=0) {
+                PixelSearch, FoundX, FoundY, 676, 977, 676, 977, 0xFFFFFF,,Fast RGB ;practice button
+                if (ErrorLevel=0) {
 
                     PixelSearch, FoundX, FoundY, 964, 984, 964, 984, 0xFFFFFF,,Fast RGB ;START button
                     if (ErrorLevel=0) {
@@ -115,54 +114,25 @@ startbutton(){
 }
 
 lockagent() {
+    agentX := [ 666, 750, 834, 918, 1002, 1086, 1170, 1254,  666,  750,  834,  918, 1002, 1086, 1170] ;Astra Breach Brimstone Cypher Jett Killjoy Omen Phoenix Raze Reyna Sage Skye Sova Viper Yoru
+    agentY := [ 925, 925, 925, 925,  925,  925,  925,  925, 1015, 1015, 1015, 1015, 1015, 1015, 1015] ;Astra Breach Brimstone Cypher Jett Killjoy Omen Phoenix Raze Reyna Sage Skye Sova Viper Yoru
     Loop 4 {
-        MouseMove 666, 925, 0 ;Astra
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 750 , 925, 0 ;Breach
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 834 , 925, 0 ;Brimstone
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 918 , 925, 0 ;Cypher
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1002 , 925, 0 ;Jett
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1086 , 925, 0 ;Killjoy
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1170 , 925, 0 ;Omen
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1254 , 925, 0 ;Phoenix
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 666 , 1015, 0 ;Raze
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 750 , 1015, 0 ;Reyna
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 834 , 1015, 0 ;Sage
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 918 , 1015, 0 ;Skye
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1002 , 1015, 0 ;Sova
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1086 , 1015, 0 ;Viper
-        Send {LButton DOWN}
-        Send {LButton UP}
-        MouseMove 1170 , 1015, 0 ;Yoru
-        Send {LButton DOWN}
-        Send {LButton UP}
-        
+
+        n := 1
+        Loop 14 {
+            MouseMove agentX[n], agentY[n], 0
+            Send {LButton DOWN}
+            Send {LButton UP}
+            n := n + 1
+            Sleep, 20
+        }
+
     }
+    Random, rand, 1, 15
+    MouseMove agentX[rand], agentY[rand], 0 ;random agent
+    Send {LButton DOWN}
+    Send {LButton UP}
+    Sleep, 100
     MouseMove 959 , 816, 0 ;LOCK button
     Send {LButton DOWN}
     Send {LButton UP}
@@ -322,7 +292,7 @@ partynotready(){
             if (ErrorLevel=0) {
 
                 readyfail := readyfail + 1
-                if (readyfail > 2){
+                if (readyfail > 3){
                     MouseMove 500, 96, 0 ;unrated
                     Sleep, 100
                     Send {LButton DOWN}
@@ -357,7 +327,11 @@ partynotready(){
                     Sleep, 100
                     Send {LButton DOWN}
                     Send {LButton UP}
-
+                    if (readyfail > 14){
+                        WinKill ,VALORANT
+                        readyfail := 0
+                        Sleep, 9000
+                    }
                     MouseMove 960, 540, 0
                 }
                 Sleep, 1000
@@ -375,22 +349,19 @@ cheaterdetected(){
         PixelSearch, FoundX, FoundY, 1897, 25, 1897, 25, 0xD3373A,4,Fast RGB ;cheater red 2
         if (ErrorLevel=0) {
 
-            MouseMove 961, 917, 0
-            Sleep, 100
-            Send {LButton DOWN}
-            Send {LButton UP}
-            Sleep, 1000
+            PixelSearch, FoundX, FoundY, 676, 977, 676, 977, 0xFFFFFF,,Fast RGB ;not practice button
+            if not (ErrorLevel=0) {
+
+                MouseMove 961, 917, 0
+                Sleep, 100
+                Send {LButton DOWN}
+                Send {LButton UP}
+                Sleep, 1000
+
+            }
 
         }
 
-    }
-}
-
-killvalorant(){
-    if (readyfail > 9){
-        WinKill ,VALORANT
-        readyfail := 0
-        Sleep, 10000
     }
 }
 
@@ -415,14 +386,15 @@ afkoffense(){
         PixelSearch, FoundX, FoundY, 600, 400, 600, 400, 0x1E2328,,Fast RGB ;afk offense
         if (ErrorLevel=0) {
 
-            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,16,Fast RGB ;i understand
+            PixelSearch, FoundX, FoundY, 1070, 659, 1070, 659, 0xDF5D58,18,Fast RGB ;i understand
             if (ErrorLevel=0) {
+
                 MouseMove 1070, 659, 0
                 Sleep, 100
                 Send {LButton DOWN}
                 Send {LButton UP}
-                MouseMove 960, 540, 0
                 Sleep, 1000
+
             }
 
         }
@@ -444,6 +416,8 @@ connectionerror(){
                 if (ErrorLevel=0) {
                     
                     WinKill ,VALORANT
+                    current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+                    FileAppend, [%current_time%] VALORANT ERROR (RESTARTING VALORANT)`n, %A_ScriptDir%\bot_log.txt
                     
                 }
 
@@ -465,6 +439,8 @@ valerror(){
             if (ErrorLevel=0) {
 
                 WinKill ,VALORANT
+                current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+                FileAppend, [%current_time%] VALORANT ERROR (RESTARTING VALORANT)`n, %A_ScriptDir%\bot_log.txt
 
             }
 
@@ -474,6 +450,7 @@ valerror(){
 }
 
 riotclientplay(){
+    Sleep, 500
     WinActivate ,Riot Client
     Sleep, 100
     WinGetPos, riotX, riotY, riotW, riotH, Riot Client
@@ -481,7 +458,6 @@ riotclientplay(){
     Sleep, 100
     Send {LButton DOWN}
     Send {LButton UP}
-    MouseMove 960, 540, 0
     Sleep, 1000
 }
 
@@ -497,14 +473,51 @@ hello(){
     Sleep, 100
 }
 
+playagain(){
+    PixelSearch, FoundX, FoundY, 28, 28, 28, 28, 0xFFFFFF,,Fast RGB ;MenuWhite1
+    if (ErrorLevel=0) {
+
+        PixelSearch, FoundX, FoundY, 1897, 25, 1897, 25, 0xFFFFFF,,Fast RGB ;MenuWhite2
+        if (ErrorLevel=0) {
+
+            PixelSearch, FoundX, FoundY, 865, 1025, 865, 1025, 0xFFFFFF,,Fast RGB ;play again button
+            if (ErrorLevel=0) {
+
+                exp := exp + 1000
+                current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+                FileAppend,[%current_time%] +1000XP`n, %A_ScriptDir%\bot_log.txt
+                MouseMove 1000, 10, 0 ;PLAY button
+                Sleep, 100
+                Send {LButton DOWN}
+                Send {LButton UP}
+                Sleep, 100
+                MouseMove 960, 540, 0
+                Sleep, 2000
+                if (exp >= how_much_XP) {
+                    current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+                    FileAppend, [%current_time%] EXIT BOT (TOTAL %exp%XP)`n, %A_ScriptDir%\bot_log.txt
+                    ExitApp
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
 if not (A_ScreenWidth = 1920 and A_ScreenHeight = 1080) {
     MsgBox, Your resolution is not 1920*1080 `n The script can't work.
     ExitApp
 }
 if !FileExist(A_ScriptDir . "\" . "Valorant.lnk") {
-    MsgBox, You must put a valorant shortcut in the same folder as the script and named "Valorant".
+    MsgBox, You must put a valorant shortcut in the same folder as the script.
     ExitApp
 }
+
+current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+FileAppend,-----------------------------------------------------`n[%current_time%] START BOT`n, %A_ScriptDir%\bot_log.txt
 
 while TRUE {
     if (go = 1) {
@@ -512,17 +525,17 @@ while TRUE {
             riotclientplay()
         }
         if WinActive("VALORANT") {
-           playbutton()
-           spikerushbutton()
+           valhome()
+           spikerushmode()
            startbutton()
            pickagent()
            antiafk()
            partynotready()
            cheaterdetected()
-           killvalorant()
            afkoffense()
            connectionerror()
            valerror()
+           playagain()
         }
         restartvalorant()
     }
@@ -533,5 +546,12 @@ go := go * -1
 KeyWait, F6
 Return
 
-F7::ExitApp
-L::ExitApp
+F7::
+current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+FileAppend, [%current_time%] EXIT BOT (TOTAL %exp%XP)`n, %A_ScriptDir%\bot_log.txt
+ExitApp
+
+L::
+current_time := A_MM . "/" . A_DD . "-" . A_Hour . ":" . A_Min . ":" . A_Sec
+FileAppend, [%current_time%] EXIT BOT (TOTAL %exp%XP)`n, %A_ScriptDir%\bot_log.txt
+ExitApp
