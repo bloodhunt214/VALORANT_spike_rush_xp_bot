@@ -7,6 +7,7 @@ Text Language : English <br>
 
 ## How to use <br>
 Put a valorant shortcut in the same folder as the script and named "Valorant" <br>
+![image](https://github.com/worse-666/images/blob/main/same%20folder.png)
 Double click the script to start <br>
 F6 : pause <br>
 L : exit script <br>
