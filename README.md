@@ -26,6 +26,8 @@ _**If too many people report you may get banned**_
 https://discord.gg/BjxwDRDH <br>
 
 ## Changelog <br>
+### spike_rush_bot_1.1.2 <br>
+* Add new error detect
 ### spike_rush_bot_1.1.1 <br>
 * fixed small bug
 ### spike_rush_bot_1.1.0 <br>
