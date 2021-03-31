@@ -10,6 +10,7 @@ Put a valorant shortcut in the same folder as the script and named "Valorant" <b
 ![image](https://github.com/worse-666/images/blob/main/same%20folder.png) <br>
 Double click the script <br>
 ![image](https://github.com/worse-666/images/blob/main/spike%20rush%20bot.png) <br>
+Set target XP and press GO button <br>
 F6 : pause <br>
 L : exit script <br>
 F7 : exit script <br>
