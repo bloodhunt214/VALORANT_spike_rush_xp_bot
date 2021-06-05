@@ -1,4 +1,4 @@
-# VALORANT_spike_rush_xp_bot
+# vanguard blocked so the script doesn't work anymore
 
 
 ## Support <br>
