@@ -24,8 +24,7 @@ Resolution : 1920 x 1080 16:9 <br>
 ## ❗❗WARNING❗❗ <br>
 _**If too many people report you may get banned**_
 
-## DISCORD <br>
-https://discord.gg/BjxwDRDH <br>
+
 
 ## Changelog <br>
 ### spike_rush_bot_2.0.1 <br>
